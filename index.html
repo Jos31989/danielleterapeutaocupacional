@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Danielle Silva dos Santos - Terapeuta Ocupacional</title>
+<style>
+body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f9f9f9; color:#333;}
+header { background:#4CAF50; color:white; padding:20px; text-align:center;}
+nav { background:#333; text-align:center; }
+nav a { color:white; margin:0 15px; text-decoration:none; font-weight:bold; }
+section { padding:40px 20px; max-width:900px; margin:auto; }
+h2 { color:#4CAF50; }
+.servico { background:white; padding:20px; margin-bottom:20px; border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+footer { background:#333; color:white; text-align:center; padding:15px; margin-top:20px;}
+a.botao { background:#4CAF50; color:white; padding:10px 15px; text-decoration:none; border-radius:5px; }
+.slider { position: relative; max-width: 600px; margin: auto; overflow: hidden; border-radius: 10px;}
+.slides { display: flex; transition: transform 0.5s ease-in-out;}
+.slides img { width: 100%; flex-shrink: 0; }
+.prev, .next { position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(0,0,0,0.5); color: white; border: none; padding: 10px; cursor: pointer; border-radius: 50%; }
+.prev { left: 10px; }
+.next { right: 10px; }
+#quemsoueu-content { display:none; background:white; padding:20px; border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,0.1); margin-bottom:20px; }
+.botao-verde { background:#4CAF50; color:white; padding:10px 15px; text-decoration:none; border-radius:5px; margin-right:10px; display:inline-block; }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Danielle Silva dos Santos</h1>
+    <p>Terapeuta Ocupacional | Cuidando do seu bem-estar</p>
+</header>
+
+<nav>
+    <a href="#sobre" onclick="toggleQuemSouEu()">Quem sou eu</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#galeria">Galeria</a>
+    <a href="https://wa.me/5521981352137?text=Olá,%20quero%20marcar%20uma%20consulta" target="_blank">WhatsApp</a>
+    <a href="https://www.instagram.com/daniessantosa" target="_blank">Instagram</a>
+</nav>
+
+<section id="sobre">
+    <h2>Quem sou eu</h2>
+    <div id="quemsoueu-content">
+      <p>Sou Terapeuta Ocupacional, com experiência em [áreas de atuação]. Meu objetivo é promover a autonomia e qualidade de vida dos meus pacientes, através de atividades personalizadas e acompanhamento dedicado.</p>
+    </div>
+</section>
+
+<section id="servicos">
+    <h2>Serviços</h2>
+    <div class="servico">
+        <h3>Atendimento Individual</h3>
+        <p>Sessões personalizadas focadas nas necessidades do paciente.</p>
+    </div>
+    <div class="servico">
+        <h3>Reabilitação Funcional</h3>
+        <p>Auxílio na recuperação de habilidades motoras e cognitivas.</p>
+    </div>
+    <div class="servico">
+        <h3>Orientação Familiar</h3>
+        <p>Suporte e orientação para familiares e cuidadores.</p>
+    </div>
+</section>
+
+<section id="galeria">
+  <h2>Galeria de Fotos</h2>
+  <div class="slider">
+    <div class="slides">
+      <!-- Foto de perfil -->
+      <img src="perfil.jpg" alt="Foto de perfil">
+      <!-- Fotos de atendimento -->
+      <img src="atendimento1.jpg" alt="Atendimento 1">
+      <img src="atendimento2.jpg" alt="Atendimento 2">
+      <img src="atendimento3.jpg" alt="Atendimento 3">
+    </div>
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+  </div>
+</section>
+
+<footer>
+    <p>&copy; 2025 Danielle Silva dos Santos - Todos os direitos reservados.</p>
+</footer>
+
+<script>
+// Slider
+const slides = document.querySelector('.slides');
+const images = document.querySelectorAll('.slides img');
+let index = 0;
+
+document.querySelector('.next').addEventListener('click', () => {
+  index++;
+  if(index >= images.length) index = 0;
+  slides.style.transform = `translateX(${-index * 100}%)`;
+});
+
+document.querySelector('.prev').addEventListener('click', () => {
+  index--;
+  if(index < 0) index = images.length - 1;
+  slides.style.transform = `translateX(${-index * 100}%)`;
+});
+
+// Quem sou eu toggle
+function toggleQuemSouEu() {
+  const content = document.getElementById('quemsoueu-content');
+  if(content.style.display === "none") {
+    content.style.display = "block";
+    content.scrollIntoView({behavior: "smooth"});
+  } else {
+    content.style.display = "none";
+  }
+}
+</script>
+
+</body>
+</html>
